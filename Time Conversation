@@ -1,0 +1,71 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'timeConversion' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING s as parameter.
+     */
+
+    public static String timeConversion(String s) {
+    // Write your code here
+    String result="Yoyo";
+    
+    if(s.substring(8).equals("AM")){
+        if(s.substring(0,2).equals("12"))
+            result = "00:"+s.substring(3,8);
+        else 
+            result = s.substring(0,8);
+    }
+    else{
+        switch(s.substring(0,2)){
+            case "12": result = s.substring(0,8); break;
+            case "01": result = "13:"+s.substring(3,8); break;
+            case "02": result = "14:"+s.substring(3,8); break;
+            case "03": result = "15:"+s.substring(3,8); break;
+            case "04": result = "16:"+s.substring(3,8); break;
+            case "05": result = "17:"+s.substring(3,8); break;
+            case "06": result = "18:"+s.substring(3,8); break;
+            case "07": result = "19:"+s.substring(3,8); break;
+            case "08": result = "20:"+s.substring(3,8); break;
+            case "09": result = "21:"+s.substring(3,8); break;
+            case "10": result = "22:"+s.substring(3,8); break;
+            case "11": result = "23:"+s.substring(3,8); break;
+            default: result = s.substring(0,8); break;
+        }
+    }
+    
+    return result;
+    
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String s = bufferedReader.readLine();
+
+        String result = Result.timeConversion(s);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
