@@ -1,0 +1,30 @@
+package lab0a;
+import java.util.Scanner;
+/* Check if a user entered string is palindrome or not*/
+
+public class QuestionThree {
+	
+	public static void main(String args[]) {
+	
+	Scanner readInput = new Scanner(System.in);
+	System.out.println("Enter the String: ");
+	String s=readInput.nextLine();
+	
+	String reverseString="";
+	
+	for(int i=s.length()-1;i>=0;i--) {
+		char ch = s.charAt(i);
+		reverseString+=ch;
+	}
+	
+
+	if (s.equals(reverseString)) System.out.println("PALINDROME!");
+	else System.out.println("NOT PALINDROME!");
+		
+		
+	readInput.close();
+	
+	
+	}
+
+}
