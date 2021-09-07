@@ -1,0 +1,31 @@
+package lab0a;
+
+/* The program prints the first 100 prime numbers */
+
+public class QuestionOne {
+	
+	public static void main(String[] args) {
+		int count=1;                        // to count the first 100 prime numbers accounting for 2.
+		int number=3;                       // number series, already counted 2. 
+		System.out.println(count+":"+2);
+		while(count < 100) {
+			if(isPrime(number)) {
+				count+=1;
+				System.out.println(count+":"+number);
+			}
+			number+=1;
+		}
+		
+	}
+	
+	static boolean isPrime(int n) {
+	
+		for(int i=2;i<n;i++) {
+			if(n%i==0) return false;
+		}
+		
+		
+		return true;
+	}
+
+}
