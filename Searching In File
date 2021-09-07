@@ -1,0 +1,40 @@
+package lab0a;
+import java.util.*;
+import java.io.*;
+
+
+public class QuestionFive {
+	
+	public static void main (String args[]) {
+		
+	Scanner readInput = new Scanner(System.in);
+	
+	System.out.println("Please enter the search word: ");
+	String searchWord = readInput.nextLine();
+	int count =0;
+	try {
+	FileReader inputFile = new FileReader("searchwords.txt");
+	BufferedReader inputBuffer = new BufferedReader(inputFile);
+	
+	String s; 
+	while((s=inputBuffer.readLine())!= null) {
+		System.out.println(s);
+		StringTokenizer words = new StringTokenizer(s," ");
+		while(words.hasMoreTokens()) {
+			if(words.nextToken().equals(searchWord)) count=count+1;
+		}
+		
+	}
+	
+	}catch(FileNotFoundException e) {
+		System.out.println("File not Found");
+	}
+	catch(Exception e) {
+		System.out.println("Ran into issue:"+e.getMessage());
+	}
+	
+	readInput.close();
+	System.out.println("Number of times "+searchWord+" appears is: "+count);
+	}
+
+}
